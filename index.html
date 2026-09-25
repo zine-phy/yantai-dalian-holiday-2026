@@ -386,6 +386,9 @@ if(location.hash==='#food'||location.hash==='#food-choices'||location.hash==='#c
  }
  jump.addEventListener('click',()=>{if(!target)return;const day=target.closest('.day')?.id?.split('-')[1];document.querySelector('[data-day="'+day+'"]')?.click();target.scrollIntoView({behavior:'smooth',block:'center'})});
  document.querySelectorAll('[data-plan-choice]').forEach(b=>b.addEventListener('click',()=>setTimeout(()=>render(),0)));
- window.__holidayProgressRender=value=>render(value instanceof Date?value:new Date(value));render();setInterval(()=>render(),30000);
+ window.__holidayProgressRender=value=>render(value instanceof Date?value:new Date(value));
+ render();setInterval(()=>render(),1000);
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)render()});
+ window.addEventListener('focus',()=>render());
 })();
 </script></body></html>
