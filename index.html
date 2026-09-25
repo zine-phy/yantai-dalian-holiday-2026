@@ -419,7 +419,7 @@ if(location.hash==='#food'||location.hash==='#food-choices'||location.hash==='#c
 })();
 (function(){
  const root=document.getElementById('yantai-overview'),svg=document.getElementById('yt-overview-svg'),raw=document.getElementById('atlas-data');if(!root||!svg||!raw)return;
- const data=JSON.parse(raw.textContent),P=data.points,W=720,H=440,b={x0:121.16,x1:121.47,y0:37.49,y1:37.62};
+ const data=JSON.parse(raw.textContent),P=data.points,W=720,H=440,b={x0:121.18,x1:121.49,y0:37.49,y1:37.62};
  const xy=([x,y])=>[(x-b.x0)/(b.x1-b.x0)*W,(b.y1-y)/(b.y1-b.y0)*H];
  const zones={west:{xy:[121.252,37.576],rx:78,ry:47},base:{xy:P.yh.xy,rx:46,ry:43},old:{xy:[121.400,37.542],rx:43,ry:41},east:{xy:P.seal.xy,rx:48,ry:45}};
  const pinOffsets={west:[0,0],base:[-63,48],old:[-9,-53],east:[25,47]};
