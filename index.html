@@ -24,6 +24,7 @@
 @media print{.atlas{break-inside:avoid}.atlas-dates,.atlas-controls,.atlas-plan,.atlas-views{display:none}.atlas-grid{display:block}.atlas-canvas{height:440px}#atlas-stops{max-height:none;display:grid;grid-template-columns:1fr 1fr}.atlas-credit{font-size:9px!important}}
 
 .atlas-arrival{display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:12px 20px;border-bottom:1px solid #d8ded3;font-size:13px}.atlas-arrival[hidden]{display:none}.atlas-arrival button{padding:8px 14px;border:1px solid #c2d1ca;border-radius:20px;background:#fff;color:#244a46;cursor:pointer}.atlas-arrival button[aria-pressed="true"]{background:#0c6870;color:#fff;border-color:#0c6870}
+.trip-progress{position:fixed;right:18px;bottom:18px;z-index:70;width:min(370px,calc(100vw - 28px));background:#fffdf7;border:1px solid #b8ccc3;border-radius:16px;box-shadow:0 14px 46px #183b3630;overflow:hidden;color:#203f3a}.trip-progress-head{display:flex;align-items:center;gap:11px;width:100%;padding:13px 15px;border:0;background:#0c6870;color:#fff;text-align:left;cursor:pointer}.trip-progress-head::before{content:"";width:9px;height:9px;border-radius:50%;background:#f3bd72;box-shadow:0 0 0 5px #ffffff1f;flex:0 0 auto}.trip-progress-head span{font-size:12px;letter-spacing:.08em;opacity:.85}.trip-progress-head strong{display:block;font-size:15px;margin-top:2px}.trip-progress-toggle{margin-left:auto;font-size:18px;line-height:1;transition:transform .2s}.trip-progress[data-collapsed="true"] .trip-progress-toggle{transform:rotate(180deg)}.trip-progress-body{padding:15px 16px 16px}.trip-progress[data-collapsed="true"] .trip-progress-body{display:none}.trip-progress-kicker{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#b85b38}.trip-progress-main{font-family:Georgia,"Noto Serif SC",serif;font-size:21px;line-height:1.35;margin:5px 0 7px;color:#183a37}.trip-progress-sub{font-size:12px;line-height:1.75;color:#62756e;margin:0}.trip-progress-next{margin-top:11px;padding-top:10px;border-top:1px solid #dce6df;font-size:12px;line-height:1.7;color:#385a52}.trip-progress-actions{display:flex;align-items:center;gap:10px;margin-top:12px}.trip-progress-jump{border:1px solid #0c6870;border-radius:20px;background:transparent;color:#0c6870;padding:7px 12px;font-size:12px;cursor:pointer}.trip-progress-source{font-size:10px;color:#7c8b84;margin-left:auto}.stop.is-current{border-color:#d9854f!important;background:#fff8ed!important;box-shadow:0 0 0 3px #dc895326}.stop.is-current>.time{color:#b34d2e;font-weight:700}.stop.is-current h4::after{content:"现在";display:inline-block;margin-left:9px;padding:2px 7px;border-radius:12px;background:#c75b35;color:#fff;font:600 10px/1.4 system-ui,sans-serif;vertical-align:middle}.stop.is-next{box-shadow:inset 3px 0 #8ab3a4}.trip-progress[data-mode="before"] .trip-progress-head::before{background:#f4d9a6}.trip-progress[data-mode="complete"] .trip-progress-head::before{background:#a9d4bd}.trip-progress[data-mode="active"] .trip-progress-head::before{animation:tripPulse 1.8s ease-in-out infinite}@keyframes tripPulse{50%{box-shadow:0 0 0 9px #ffffff12}}@media(max-width:640px){.trip-progress{right:14px;bottom:max(12px,env(safe-area-inset-bottom));width:calc(100vw - 28px)}.trip-progress-main{font-size:18px}.trip-progress-body{padding:13px 14px 14px}}@media print{.trip-progress{display:none!important}.stop.is-current,.stop.is-next{box-shadow:none!important}}
 </style></head><body><a class="skip" href="#itinerary">跳转到每日行程</a>
 <header class="wrap"><div class="topbar"><div class="brand">我们的海岸假期</div><div class="edition">2026 · SEVEN TOGETHER</div></div><div class="hero"><div><div class="eyebrow">Yantai → Dalian / 7人同行</div><h1>一程海风，<br>七个人的假期。<small>烟台 × 大连</small></h1><p class="hero-copy">金沙滩的海风，跨海轮船的午后，<br>大连的海岸、山顶和老街。<br>把想去的地方串起来，也把七个人的一桌饭安排好。</p><div class="hero-bottom"><span class="date-range">09.29 — 10.04</span><span class="stamp">小红书实读 · 景点细节增补</span></div></div><div class="chart"><svg viewBox="0 0 490 365" role="img" aria-label="烟台向北跨海到大连的路线示意，非导航地图，不按比例绘制"><defs><pattern id="waves" width="42" height="29" patternUnits="userSpaceOnUse"><path d="M3 16Q12 10 21 16T39 16" stroke="#c3d8d1" fill="none" stroke-width=".7"/></pattern></defs><rect width="490" height="365" fill="url(#waves)"/><path d="M305 -5 L493 -5 493 157 Q462 141 436 111 Q408 134 390 118 L369 145 339 128 327 98 293 88 278 59Z" fill="#f6f4eb"/><path d="M-5 265 Q46 278 83 259 L113 284 151 272 191 281 221 269 253 290 305 301 340 327 400 344 445 370H-5Z" fill="#f6f4eb"/><path d="M176 281 C131 206 304 224 346 118" stroke="#0c6870" stroke-width="1.6" stroke-dasharray="5 6" fill="none"/><circle cx="346" cy="118" r="6" fill="#0c6870"/><circle cx="176" cy="281" r="6" fill="#c75b35"/><circle cx="346" cy="118" r="12" fill="none" stroke="#0c6870" opacity=".25"/><circle cx="176" cy="281" r="12" fill="none" stroke="#c75b35" opacity=".25"/><text x="367" y="84" fill="#172f3b" font-size="27" font-family="serif">大连</text><text x="367" y="105" fill="#618080" font-size="9" letter-spacing="2">DALIAN</text><text x="84" y="311" fill="#172f3b" font-size="27" font-family="serif">烟台</text><text x="85" y="330" fill="#618080" font-size="9" letter-spacing="2">YANTAI</text><rect x="195" y="171" width="162" height="56" rx="2" fill="#0c6870"/><text x="214" y="193" font-size="11" fill="#dbede6">渤海晶珠号 · 10月1日</text><text x="214" y="213" font-size="14" fill="#fff" font-family="Georgia,serif">12:00 → 18:50</text><text x="73" y="126" fill="#7c9d98" font-size="10" letter-spacing="5">一程海风</text><text x="72" y="143" fill="#7c9d98" font-size="10" letter-spacing="5">两座城市</text><path d="M35 46V22m-5 7 5-7 5 7" stroke="#648d88" fill="none"/><text x="31" y="16" font-size="8" fill="#648d88">N</text></svg><div class="chart-caption">两城示意 · 非导航地图 / 不按比例</div></div></div><div class="quick-stats"><div><b>7 人同行</b><span>两车同行 / 合适的正规包车</span></div><div><b>12 个愿望点</b><span>烟台2处 · 大连10处</span></div><div><b>4号午饭后结束</b><span>12:00–12:30开始吃饭</span></div></div></header><nav class="nav" aria-label="页面导航"><div class="wrap"><a href="#booked">已定安排</a><a href="#route-map">行程总图</a><a href="#itinerary">每日行程</a><a href="#transfer">7人交通</a><a href="#tips">行前准备</a><a href="#sources">资料来源</a><button class="print" id="print">打印 / 存PDF</button></div></nav><main class="wrap">
 <section id="booked"><div class="section-head"><div><span class="section-num">01 / Already booked</span><h2>抵达安排、船班和住处</h2></div><p>按2026年日期规划。交通与住宿沿用你们给的信息；游玩、餐馆和用车均为建议，未代订。</p></div><div class="bookings"><div class="rail-ticket"><div><div class="label">SEP 29 · ARRIVAL / 晚间陆续抵达</div><strong>烟台站 / 烟台蓬莱国际机场</strong><p>9月29日晚按各自票面时间抵达 · 分别前往漫亭酒店</p></div><div class="ferry"><div class="label">OCT 01 · FERRY / 用户已确定</div><strong>12:00 — 18:50 · 渤海晶珠号</strong><p><b>三等B床位 · 已确定</b></p><p>烟台港客运站 → 辽渔大连湾航运中心</p></div></div><article class="booking"><div class="label">烟台 · 9月29日入住 / 10月1日离店</div><h3>烟台站万达广场漫亭酒店</h3><p class="address">芝罘区南大街186号 <a class="ref" href="#source-1" aria-label="查看资料来源1">[01]</a></p><p>按2晚安排。首晚晚到，提前确认保留房间；下车时核对酒店完整名称。</p><div class="mini-actions"><a class="maplink" target="_blank" rel="noopener noreferrer" href="https://uri.amap.com/search?keyword=%E7%83%9F%E5%8F%B0%E7%AB%99%E4%B8%87%E8%BE%BE%E5%B9%BF%E5%9C%BA%E6%BC%AB%E4%BA%AD%E9%85%92%E5%BA%97&city=%E7%83%9F%E5%8F%B0&view=map&src=holiday-guide">地图 · 烟台站万达广场漫亭酒店 ↗</a><button class="copy" data-copy="烟台站万达广场漫亭酒店，芝罘区南大街186号">复制地址</button></div></article><article class="booking"><div class="label">大连 · 10月1日入住 / 10月4日离店</div><h3>福千民宿 · 星海广场店</h3><p class="address">沙河口区滨河街66-3号<br><strong>新星星海中心C座 · 4层415室</strong> <a class="ref" href="#source-2" aria-label="查看资料来源2">[02]</a></p><p>详细门牌由你们确认；按3晚安排。提前问清楼入口、夜间入住及4号寄存。去星海广场海边仍需移动。</p><div class="mini-actions"><a class="maplink" target="_blank" rel="noopener noreferrer" href="https://uri.amap.com/search?keyword=%E6%96%B0%E6%98%9F%E6%98%9F%E6%B5%B7%E4%B8%AD%E5%BF%83C%E5%BA%A7&city=%E5%A4%A7%E8%BF%9E&view=map&src=holiday-guide">地图 · 新星星海中心C座 ↗</a><button class="copy" data-copy="大连福千民宿（星海广场店），沙河口区滨河街66-3号新星星海中心C座4层415室">复制地址</button></div></article></div><div class="notice"><strong>这版优先尽量覆盖愿望点：</strong>2号集中西侧山海，3号8:30出发去金石滩、返城逛东关与中山，4号南山与东港，午饭后结束。每段时长为计划估算，不是实时导航结果。海豹湾暂按东炮台定位，临行确认开放。</div></section>
@@ -313,5 +314,78 @@ if(location.hash==='#food'||location.hash==='#food-choices'||location.hash==='#c
  window.addEventListener('hashchange',hash);
  new ResizeObserver(entries=>{const r=entries[0].contentRect,s=r.width+'x'+r.height;if(s!==lastSize){lastSize=s;draw()}}).observe(svg);
  plan=planRead();const m=location.hash.match(/^#day-(\d)$/);if(m&&+m[1]<6)day=+m[1];rows();renderUI();
+})();
+(function(){
+ const schedule=[
+  ['2026-09-29T18:00','2026-09-29T23:59',0,'晚间分批抵达烟台，入住与各自夜宵','烟台站 / 烟台机场'],
+  ['2026-09-30T08:00','2026-09-30T09:10',1,'早餐后前往东炮台海豹湾','早餐 → 东炮台'],
+  ['2026-09-30T09:10','2026-09-30T10:10',1,'海豹湾游玩','海豹湾：给小园留1小时'],
+  ['2026-09-30T10:10','2026-09-30T11:00',1,'东炮台海边短走','东炮台周边'],
+  ['2026-09-30T11:00','2026-09-30T12:40',1,'去二马路并吃胶东午饭','去二马路'],
+  ['2026-09-30T12:40','2026-09-30T14:00',1,'前往金沙滩','A方案：午饭后去金沙滩','regular'],
+  ['2026-09-30T14:00','2026-09-30T15:15',1,'孤独的鲸与沙滩散步','孤独的鲸','regular'],
+  ['2026-09-30T15:15','2026-09-30T16:40',1,'前往后沙，在花语咖啡休息','去后沙','regular'],
+  ['2026-09-30T16:40','2026-09-30T18:00',1,'后沙海岸等待傍晚光线','后沙海岸','regular'],
+  ['2026-09-30T18:00','2026-09-30T20:15',1,'回城并吃晚饭','回城 → 晚饭','regular'],
+  ['2026-09-30T12:40','2026-09-30T14:15',1,'朝阳街与烟台山','B方案：朝阳街','dawn'],
+  ['2026-09-30T14:15','2026-09-30T15:35',1,'广仁路、滨海广场与咖啡','广仁路与滨海广场','dawn'],
+  ['2026-09-30T15:35','2026-09-30T17:00',1,'所城里慢逛','所城里','dawn'],
+  ['2026-09-30T17:00','2026-09-30T18:15',1,'早点吃晚饭，为日出留睡眠','早点吃晚饭','dawn'],
+  ['2026-10-01T04:20','2026-10-01T05:20',2,'前往金沙滩后沙段','B限定：预约两车','dawn'],
+  ['2026-10-01T05:20','2026-10-01T06:25',2,'后沙晨光与日出','晨光、日出','dawn'],
+  ['2026-10-01T06:25','2026-10-01T08:00',2,'返回酒店，洗漱与早餐','回酒店 → 洗漱','dawn'],
+  ['2026-10-01T08:00','2026-10-01T09:20',2,'早餐、洗漱与退房','早餐、洗漱与7人退房'],
+  ['2026-10-01T09:20','2026-10-01T10:00',2,'前往烟台港候船楼','酒店 → 烟台港'],
+  ['2026-10-01T10:00','2026-10-01T12:00',2,'安检、候船、检票与港区摆渡','安检、候船'],
+  ['2026-10-01T12:00','2026-10-01T18:50',2,'渤海晶珠号航行中','渤海晶珠号'],
+  ['2026-10-01T18:50','2026-10-01T21:30',2,'下船、接驳并入住大连民宿','下船 → 接驳'],
+  ['2026-10-01T21:30','2026-10-01T22:30',2,'到店后的大连第一餐','大连第一餐'],
+  ['2026-10-02T08:00','2026-10-02T09:00',3,'早餐后前往自然博物馆','早餐 → 自然博物馆'],
+  ['2026-10-02T09:00','2026-10-02T10:45',3,'大连自然博物馆','自然博物馆：'],
+  ['2026-10-02T10:45','2026-10-02T11:40',3,'海纳百川雕塑公园','去海纳百川'],
+  ['2026-10-02T11:40','2026-10-02T13:10',3,'黑石礁／东财片区午饭','去黑石礁'],
+  ['2026-10-02T13:10','2026-10-02T15:40',3,'莲花山上下山与观景','去莲花山'],
+  ['2026-10-02T15:40','2026-10-02T16:50',3,'前往银沙滩并喝咖啡','下山去银沙滩'],
+  ['2026-10-02T16:50','2026-10-02T18:00',3,'银沙滩日落时段','银沙滩：'],
+  ['2026-10-02T18:00','2026-10-02T19:00',3,'星海广场海边夜景','去星海广场'],
+  ['2026-10-02T19:00','2026-10-02T20:45',3,'星海片区海鲜晚饭并回民宿','星海片区海鲜晚饭'],
+  ['2026-10-03T08:00','2026-10-03T09:15',4,'早餐后接驳3号线','早餐 → 两车接3号线'],
+  ['2026-10-03T09:15','2026-10-03T10:55',4,'乘3号线并接驳地质公园','3号线到金石滩'],
+  ['2026-10-03T10:55','2026-10-03T13:10',4,'金石滩地质公园核心步道','地质公园：'],
+  ['2026-10-03T13:10','2026-10-03T14:40',4,'金石滩午饭','去餐馆'],
+  ['2026-10-03T14:40','2026-10-03T15:30',4,'返回金石滩站','直接回金石滩站'],
+  ['2026-10-03T15:30','2026-10-03T17:00',4,'乘3号线返城并前往东关街','3号线返大连站'],
+  ['2026-10-03T17:00','2026-10-03T18:45',4,'东关街短逛与晚饭','东关街短逛'],
+  ['2026-10-03T18:45','2026-10-03T20:15',4,'中山广场夜色建筑并回民宿','去中山广场'],
+  ['2026-10-04T07:45','2026-10-04T08:30',5,'早餐、退房并寄存行李','早餐、退房'],
+  ['2026-10-04T08:30','2026-10-04T09:45',5,'南山街区散步','去南山'],
+  ['2026-10-04T09:45','2026-10-04T11:00',5,'东港海岸短走','去东港'],
+  ['2026-10-04T11:00','2026-10-04T12:10',5,'返回C座取行李并去午饭','东港 → C座'],
+  ['2026-10-04T12:10','2026-10-04T13:30',5,'最后一顿午饭；饭后行程结束','在这个时间段开始午饭']
+ ].map((x,i)=>({start:new Date(x[0]+':00+08:00'),end:new Date(x[1]+':00+08:00'),day:x[2],title:x[3],key:x[4],plan:x[5]||null,index:i}));
+ const dayNames=['9月29日 · 抵达烟台','9月30日 · 烟台','10月1日 · 跨海到大连','10月2日 · 大连西侧山海','10月3日 · 金石滩与老城','10月4日 · 返程上午'];
+ const card=document.createElement('aside');card.className='trip-progress';card.id='trip-progress';card.setAttribute('aria-label','当前行程进度');card.innerHTML='<button class="trip-progress-head" type="button" aria-expanded="true"><span>北京时间</span><strong id="trip-clock">读取系统时间…</strong><i class="trip-progress-toggle" aria-hidden="true">⌃</i></button><div class="trip-progress-body"><div class="trip-progress-kicker" id="trip-kicker">行程时间轴</div><div class="trip-progress-main" id="trip-main">正在计算当前进度…</div><p class="trip-progress-sub" id="trip-sub"></p><div class="trip-progress-next" id="trip-next"></div><div class="trip-progress-actions"><button class="trip-progress-jump" type="button">查看这一段</button><span class="trip-progress-source">取自本机时间 · 北京时区</span></div></div>';
+ document.body.append(card);
+ const q=s=>card.querySelector(s),head=q('.trip-progress-head'),jump=q('.trip-progress-jump');let target=null;
+ let collapsed=false;try{collapsed=localStorage.getItem('coastal-holiday-progress-collapsed-v1')==='1'}catch(e){}
+ function setCollapsed(v){collapsed=v;card.dataset.collapsed=String(v);head.setAttribute('aria-expanded',String(!v));try{localStorage.setItem('coastal-holiday-progress-collapsed-v1',v?'1':'0')}catch(e){}}
+ setCollapsed(collapsed);head.addEventListener('click',()=>setCollapsed(!collapsed));
+ function plan(){return document.querySelector('[data-plan-choice="dawn"]')?.getAttribute('aria-pressed')==='true'?'dawn':'regular'}
+ function events(){const p=plan();return schedule.filter(e=>!e.plan||e.plan===p).sort((a,b)=>a.start-b.start)}
+ function duration(ms){const mins=Math.max(0,Math.ceil(ms/60000)),d=Math.floor(mins/1440),h=Math.floor(mins%1440/60),m=mins%60;if(d)return d+'天 '+h+'小时';if(h)return h+'小时'+(m?' '+m+'分钟':'');return m+'分钟'}
+ const clockFmt=new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'numeric',day:'numeric',weekday:'short',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
+ const dateFmt=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'});
+ function clearMarks(){document.querySelectorAll('.stop.is-current,.stop.is-next').forEach(x=>x.classList.remove('is-current','is-next'))}
+ function findStop(e){if(!e)return null;return [...document.querySelectorAll('#day-'+e.day+' .stop')].find(x=>!x.closest('[hidden]')&&(x.querySelector('h4')?.textContent||'').includes(e.key))||null}
+ function mark(active,next){clearMarks();const a=findStop(active),n=findStop(next);if(a)a.classList.add('is-current');if(n&&n!==a)n.classList.add('is-next');target=a||n;card.querySelector('.trip-progress-jump').hidden=!target}
+ function render(nowValue){const now=nowValue instanceof Date?nowValue:new Date(nowValue||Date.now()),es=events(),first=es[0],last=es[es.length-1],active=es.find(e=>now>=e.start&&now<e.end),next=es.find(e=>e.start>now);q('#trip-clock').textContent=clockFmt.format(now);q('#trip-next').hidden=false;
+  if(now<first.start){card.dataset.mode='before';q('#trip-kicker').textContent='距离旅行开始';q('#trip-main').textContent='还有 '+duration(first.start-now);q('#trip-sub').textContent='第一天：'+dayNames[0];q('#trip-next').innerHTML='<b>第一段</b> · '+first.title+'<br>'+clockFmt.format(first.start)+' 开始';mark(null,first)}
+  else if(now>=last.end){card.dataset.mode='complete';q('#trip-kicker').textContent='本次行程';q('#trip-main').textContent='计划时间轴已完成';q('#trip-sub').textContent='10月4日午饭后不再安排活动。';q('#trip-next').hidden=true;mark(null,null)}
+  else if(active){card.dataset.mode='active';q('#trip-kicker').textContent='现在进行 · '+dayNames[active.day];q('#trip-main').textContent=active.title;q('#trip-sub').textContent='按计划约剩 '+duration(active.end-now)+'；现场延误时以实际位置为准。';q('#trip-next').innerHTML=next?'<b>下一段</b> · '+next.title+'<br>'+clockFmt.format(next.start)+' 开始':'今天已是最后一段';mark(active,next)}
+  else{card.dataset.mode='gap';q('#trip-kicker').textContent='行程间隙';q('#trip-main').textContent=next&&dateFmt.format(next.start)===dateFmt.format(now)?'下一段准备中':'今天的计划时段已结束';q('#trip-sub').textContent=next?'距离下一段还有 '+duration(next.start-now):'';q('#trip-next').innerHTML=next?'<b>下一段</b> · '+next.title+'<br>'+dayNames[next.day]+' · '+clockFmt.format(next.start):'';mark(null,next)}
+ }
+ jump.addEventListener('click',()=>{if(!target)return;const day=target.closest('.day')?.id?.split('-')[1];document.querySelector('[data-day="'+day+'"]')?.click();target.scrollIntoView({behavior:'smooth',block:'center'})});
+ document.querySelectorAll('[data-plan-choice]').forEach(b=>b.addEventListener('click',()=>setTimeout(()=>render(),0)));
+ window.__holidayProgressRender=value=>render(value instanceof Date?value:new Date(value));render();setInterval(()=>render(),30000);
 })();
 </script></body></html>
