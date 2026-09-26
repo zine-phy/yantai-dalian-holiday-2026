@@ -391,7 +391,7 @@ if(location.hash==='#food'||location.hash==='#food-choices'||location.hash==='#c
  const colors={car:'#c75b35',walk:'#70836a',rail:'#8064a1',ferry:'#187cad'};
  const e=s=>String(s).replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
  function planRead(){return 'regular'}
- function rows(){stops=(day===0&&arrival==='airport'&&data.days[0].airport)||(plan==='dawn'&&data.days[day].dawn)||data.days[day].stops;}
+ function rows(){stops=(day===0&&arrival==='airport'&&data.days[0].airport)||data.days[day].stops;}
  data.days.forEach((d,i)=>{const b=document.createElement('button');b.type='button';b.dataset.mapDay=i;b.textContent=d.date;b.addEventListener('click',()=>{document.querySelector('[data-day="'+i+'"]')?.click();setDay(i)});dates.append(b)});
  function setDay(n){day=n;view='all';selected=0;zoom=1;focusXY=null;plan=planRead();rows();renderUI();}
  function renderUI(){
@@ -513,16 +513,9 @@ if(location.hash==='#food'||location.hash==='#food-choices'||location.hash==='#c
   ['2026-09-30T09:00','2026-09-30T10:10',1,'海豹湾：9:30固定投喂时段','海豹湾：9:30固定投喂'],
   ['2026-09-30T10:10','2026-09-30T11:00',1,'东炮台海边短走','东炮台周边'],
   ['2026-09-30T11:00','2026-09-30T12:40',1,'去二马路并吃胶东午饭','去二马路'],
-  ['2026-09-30T12:40','2026-09-30T14:00',1,'前往金沙滩','A方案：午饭后去金沙滩','regular'],
-  ['2026-09-30T14:00','2026-09-30T18:00',1,'天马栈桥起沿金沙滩游览，17:10–17:20抵达后沙看日落','金沙滩—后沙','regular'],
-  ['2026-09-30T18:00','2026-09-30T20:15',1,'回城并吃晚饭','回城 → 晚饭','regular'],
-  ['2026-09-30T12:40','2026-09-30T14:15',1,'朝阳街与烟台山','B方案：朝阳街','dawn'],
-  ['2026-09-30T14:15','2026-09-30T15:35',1,'烟台山下、海岸街与滨海广场步行','烟台山下—滨海广场','dawn'],
-  ['2026-09-30T15:35','2026-09-30T17:00',1,'所城里慢逛','所城里','dawn'],
-  ['2026-09-30T17:00','2026-09-30T18:15',1,'早点吃晚饭，为日出留睡眠','早点吃晚饭','dawn'],
-  ['2026-10-01T04:20','2026-10-01T05:20',2,'前往金沙滩后沙段','B限定：预约两车','dawn'],
-  ['2026-10-01T05:20','2026-10-01T06:25',2,'后沙晨光与日出','晨光、日出','dawn'],
-  ['2026-10-01T06:25','2026-10-01T08:00',2,'返回酒店，洗漱与早餐','回酒店 → 洗漱','dawn'],
+  ['2026-09-30T12:40','2026-09-30T14:00',1,'前往金沙滩','午饭后去金沙滩'],
+  ['2026-09-30T14:00','2026-09-30T18:00',1,'天马栈桥起沿金沙滩游览，17:10–17:20抵达后沙看日落','金沙滩—后沙'],
+  ['2026-09-30T18:00','2026-09-30T20:15',1,'回城并吃晚饭','回城 → 晚饭'],
   ['2026-10-01T08:00','2026-10-01T09:20',2,'早餐、洗漱与退房','早餐、洗漱与7人退房'],
   ['2026-10-01T09:20','2026-10-01T10:00',2,'前往烟台港候船楼','酒店 → 烟台港'],
   ['2026-10-01T10:00','2026-10-01T12:00',2,'安检、候船、检票与港区摆渡','安检、候船'],
@@ -559,8 +552,7 @@ if(location.hash==='#food'||location.hash==='#food-choices'||location.hash==='#c
  let collapsed=false;try{collapsed=localStorage.getItem('coastal-holiday-progress-collapsed-v1')==='1'}catch(e){}
  function setCollapsed(v){collapsed=v;card.dataset.collapsed=String(v);head.setAttribute('aria-expanded',String(!v));try{localStorage.setItem('coastal-holiday-progress-collapsed-v1',v?'1':'0')}catch(e){}}
  setCollapsed(collapsed);head.addEventListener('click',()=>setCollapsed(!collapsed));
- function plan(){return document.querySelector('[data-plan-choice="dawn"]')?.getAttribute('aria-pressed')==='true'?'dawn':'regular'}
- function events(){const p=plan();return schedule.filter(e=>!e.plan||e.plan===p).sort((a,b)=>a.start-b.start)}
+ function events(){return schedule.slice().sort((a,b)=>a.start-b.start)}
  function duration(ms){const mins=Math.max(0,Math.ceil(ms/60000)),d=Math.floor(mins/1440),h=Math.floor(mins%1440/60),m=mins%60;if(d)return d+'天 '+h+'小时';if(h)return h+'小时'+(m?' '+m+'分钟':'');return m+'分钟'}
  const clockFmt=new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'numeric',day:'numeric',weekday:'short',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
  const dateFmt=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'});
@@ -574,7 +566,6 @@ if(location.hash==='#food'||location.hash==='#food-choices'||location.hash==='#c
   else{card.dataset.mode='gap';q('#trip-kicker').textContent='行程间隙';q('#trip-main').textContent=next&&dateFmt.format(next.start)===dateFmt.format(now)?'下一段准备中':'今天的计划时段已结束';q('#trip-sub').textContent=next?'距离下一段还有 '+duration(next.start-now):'';q('#trip-next').innerHTML=next?'<b>下一段</b> · '+next.title+'<br>'+dayNames[next.day]+' · '+clockFmt.format(next.start):'';mark(null,next)}
  }
  jump.addEventListener('click',()=>{if(!target)return;const day=target.closest('.day')?.id?.split('-')[1];document.querySelector('[data-day="'+day+'"]')?.click();target.scrollIntoView({behavior:'smooth',block:'center'})});
- document.querySelectorAll('[data-plan-choice]').forEach(b=>b.addEventListener('click',()=>setTimeout(()=>render(),0)));
  window.__holidayProgressRender=value=>render(value instanceof Date?value:new Date(value));
  render();setInterval(()=>render(),1000);
  document.addEventListener('visibilitychange',()=>{if(!document.hidden)render()});
