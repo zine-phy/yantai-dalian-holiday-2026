@@ -614,21 +614,23 @@ if(location.hash==='#food'||location.hash==='#food-choices'||location.hash==='#c
  const clockFmt=new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'numeric',day:'numeric',weekday:'short',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
  const dateFmt=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'});
  function clearMarks(){document.querySelectorAll('.stop.is-current,.stop.is-next').forEach(x=>x.classList.remove('is-current','is-next'))}
- function findStop(e){if(!e)return null;return [...document.querySelectorAll('#day-'+e.day+' .stop')].find(x=>!x.closest('[hidden]')&&(x.querySelector('h4')?.textContent||'').includes(e.key))||null}
+ function findStop(e){if(!e)return null;return [...document.querySelectorAll('#day-'+e.day+' .stop')].find(x=>!x.closest('[data-haida-panel][hidden]')&&(x.querySelector('h4')?.textContent||'').includes(e.key))||null}
  function mark(active,next){clearMarks();const a=findStop(active),n=findStop(next);if(a)a.classList.add('is-current');if(n&&n!==a)n.classList.add('is-next');target=a||n;card.querySelector('.trip-progress-jump').hidden=!target}
  function render(nowValue){const now=nowValue instanceof Date?nowValue:new Date(nowValue||Date.now()),es=events(),first=es[0],last=es[es.length-1],active=es.find(e=>now>=e.start&&now<e.end),next=es.find(e=>e.start>now);q('#trip-clock').textContent=clockFmt.format(now);q('#trip-next').hidden=false;
   if(now<first.start){card.dataset.mode='before';q('#trip-kicker').textContent='距离旅行开始';q('#trip-main').textContent='还有 '+duration(first.start-now);q('#trip-sub').textContent='第一天：'+dayNames[0];q('#trip-next').innerHTML='<b>第一段</b> · '+first.title+'<br>'+clockFmt.format(first.start)+' 开始';mark(null,first)}
-  else if(now>=last.end&&now<new Date('2026-10-05T00:00:00+08:00')){card.dataset.mode='pending';q('#trip-kicker').textContent='10月4日';q('#trip-main').textContent='行程待定';q('#trip-sub').textContent='上午可选项目见当天攻略。';q('#trip-next').hidden=true;clearMarks();target=document.querySelector('#day-5 .stop');jump.hidden=false;}
+  else if(now>=new Date('2026-10-04T00:00:00+08:00')&&now<new Date('2026-10-05T00:00:00+08:00')){card.dataset.mode='pending';q('#trip-kicker').textContent='10月4日';q('#trip-main').textContent='行程待定';q('#trip-sub').textContent='上午可选项目见当天攻略。';q('#trip-next').hidden=true;clearMarks();target=document.querySelector('#day-5 .stop');jump.hidden=false;}
+  else if(now>=last.end&&now<new Date('2026-10-04T00:00:00+08:00')){card.dataset.mode='gap';q('#trip-kicker').textContent='10月3日';q('#trip-main').textContent='今天的计划时段已结束';q('#trip-sub').textContent='10月4日上午可选项目见当天攻略。';q('#trip-next').hidden=true;clearMarks();target=document.querySelector('#day-5 .stop');jump.hidden=!target;}
   else if(now>=last.end){card.dataset.mode='complete';q('#trip-kicker').textContent='本次行程';q('#trip-main').textContent='已排定的时间轴已结束';q('#trip-sub').textContent='';q('#trip-next').hidden=true;mark(null,null)}
   else if(active){card.dataset.mode='active';q('#trip-kicker').textContent='现在进行 · '+dayNames[active.day];q('#trip-main').textContent=active.title;q('#trip-sub').textContent=active.flexible?'沿线停留随游玩进度调整。':'按计划约剩 '+duration(active.end-now)+'；现场延误时以实际位置为准。';q('#trip-next').innerHTML=next?'<b>下一段</b> · '+next.title+'<br>'+(next.flexible?'约 ':'')+clockFmt.format(next.start)+' 开始':'今天已是最后一段';mark(active,next)}
   else{card.dataset.mode='gap';q('#trip-kicker').textContent='行程间隙';q('#trip-main').textContent=next&&dateFmt.format(next.start)===dateFmt.format(now)?'下一段准备中':'今天的计划时段已结束';q('#trip-sub').textContent=next?'距离下一段还有 '+duration(next.start-now):'';q('#trip-next').innerHTML=next?'<b>下一段</b> · '+next.title+'<br>'+dayNames[next.day]+' · '+clockFmt.format(next.start):'';mark(null,next)}
  }
- jump.addEventListener('click',()=>{if(!target)return;const day=target.closest('.day')?.id?.split('-')[1];document.querySelector('[data-day="'+day+'"]')?.click();target.scrollIntoView({behavior:'smooth',block:'center'})});
+ jump.addEventListener('click',()=>{if(!target)return;const day=target.closest('.day')?.id?.split('-')[1];document.querySelector('[data-day="'+day+'"]')?.click();setCollapsed(true);const heading=target.querySelector('h4')||target;heading.style.scrollMarginTop='100px';heading.scrollIntoView({behavior:'smooth',block:'start'})});
  window.__holidayProgressRender=value=>render(value instanceof Date?value:new Date(value));
  window.addEventListener('haida-route-change',()=>render());
  render();setInterval(()=>render(),1000);
  document.addEventListener('visibilitychange',()=>{if(!document.hidden)render()});
  window.addEventListener('focus',()=>render());
+ window.addEventListener('pageshow',()=>render());
 })();
 (function(){
  const root=document.getElementById('jinsha-atlas');if(!root)return;
